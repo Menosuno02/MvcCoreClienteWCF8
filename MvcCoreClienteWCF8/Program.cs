@@ -1,12 +1,15 @@
 using MvcCoreClienteWCF8.Helpers;
 using MvcCoreClienteWCF8.Repositories;
 using MvcCoreClienteWCF8.Services;
+using ServiceReferenceCatastro;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddTransient<ServiceCountries>();
 builder.Services.AddTransient<ServiceConversor>();
+builder.Services.AddTransient<ServiceCatastro>();
+builder.Services.AddTransient<CallejerodelasedeelectrónicadelcatastroSoapClient>();
 
 builder.Services.AddTransient<RepositoryClientesXML>();
 builder.Services.AddSingleton<HelperPathProvider>();

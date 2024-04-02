@@ -18,5 +18,11 @@ namespace MvcCoreClienteWCF8.Controllers
             List<Cliente> clientes = this.repo.GetClientes();
             return View(clientes);
         }
+
+        public IActionResult Details(int idcliente)
+        {
+            Cliente cliente = this.repo.FindCliente(idcliente);
+            return View(cliente);
+        }
     }
 }

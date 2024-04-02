@@ -50,9 +50,12 @@
                     <img class="w-50" src="@Html.DisplayFor(modelItem => item.ImagenCliente)" />
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    <a asp-controller="Clientes"
+                       asp-action="Details"
+                       asp-route-idcliente="@item.IdCliente"
+                       class="btn btn-primary">
+                        Details
+                    </a>
                 </td>
             </tr>
         }

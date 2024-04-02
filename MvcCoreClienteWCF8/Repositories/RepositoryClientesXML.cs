@@ -40,5 +40,24 @@ namespace MvcCoreClienteWCF8.Repositories
             }
             return clientesList;
         }
+
+        public Cliente FindCliente(int idCliente)
+        {
+            string path = this.helper.MapPath("ClientesID.xml", Folders.Documents);
+            XDocument document = XDocument.Load(path);
+            // Realizamos consulta generando directamente las
+            // clases que necesitamos mapear (Cliente)
+            var consulta = from datos in document.Descendants("CLIENTE")
+                           where datos.Element("IDCLIENTE").Value == idCliente.ToString()
+                           select new Cliente()
+                           {
+                               IdCliente = int.Parse(datos.Element("IDCLIENTE").Value),
+                               Nombre = datos.Element("NOMBRE").Value,
+                               Direccion = datos.Element("DIRECCION").Value,
+                               Email = datos.Element("EMAIL").Value,
+                               ImagenCliente = datos.Element("IMAGENCLIENTE").Value
+                           };
+            return consulta.FirstOrDefault();
+        }
     }
 }
