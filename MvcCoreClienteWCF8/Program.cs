@@ -4,6 +4,7 @@ using MvcCoreClienteWCF8.Services;
 using ServiceReference2;
 using ServiceReferenceCatastro;
 using ServiceReferenceCoches;
+using ServiceReferenceEscenas;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +19,9 @@ builder.Services.AddTransient<ServiceMetodosVarios>();
 
 builder.Services.AddTransient<CochesContractClient>();
 builder.Services.AddTransient<ServiceCoches>();
+
+builder.Services.AddTransient<EscenasContractClient>();
+builder.Services.AddTransient<ServiceEscenas>();
 
 builder.Services.AddTransient<RepositoryClientesXML>();
 builder.Services.AddSingleton<HelperPathProvider>();

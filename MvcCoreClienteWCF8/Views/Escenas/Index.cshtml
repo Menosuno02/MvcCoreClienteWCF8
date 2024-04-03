@@ -1,0 +1,23 @@
+﻿@model ServiceReferenceEscenas.EscenaPelicula[]
+
+<h1>Escenas Azure WCF Service</h1>
+
+<form method="post">
+    <label class="form-label">Introduce ID pelicula</label>
+    <input type="text" name="idpelicula" class="form-control" />
+    <button class="btn btn-info">
+        Buscar escenas película
+    </button>
+</form>
+
+
+@foreach (var escena in Model)
+{
+    <div class="card" style="width: 18rem">
+        <img class="card-img-top" src="@escena.Imagen" />
+        <div class="card-body">
+            <h5 class="card-title">@escena.Titulo</h5>
+            <p class="card-text">@escena.Descripcion</p>
+        </div>
+    </div>
+}
