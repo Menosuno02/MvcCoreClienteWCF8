@@ -1,0 +1,11 @@
+﻿@model ServiceReferenceCoches.Coche
+
+<h1>Details</h1>
+<p>
+    <a asp-controller="Coches"
+       asp-action="Index">Back to Index</a>
+</p>
+
+<h2 class="text-success">@Model.Marca @Model.Modelo</h2>
+<h2 class="text-primary">ID: @Model.IdCoche</h2>
+<img src="@Model.Imagen" width="200" height="200" />

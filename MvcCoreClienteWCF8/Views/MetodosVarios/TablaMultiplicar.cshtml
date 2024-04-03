@@ -1,0 +1,21 @@
+﻿@model int[]
+
+<h1>Tabla Multiplicar WCF</h1>
+
+<form method="post">
+    <label>Introduce número</label>
+    <input type="text" name="numero" class="form-control" />
+    <button class="btn btn-danger">
+        Tabla multiplicar
+    </button>
+</form>
+
+@if (Model != null)
+{
+    <ul class="list-group">
+        @foreach (int num in Model)
+        {
+            <li class="list-group-item">@num</li>
+        }
+    </ul>
+}

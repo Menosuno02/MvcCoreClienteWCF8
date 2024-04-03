@@ -46,7 +46,6 @@ namespace MvcCoreClienteWCF8.Services
             var consulta = from datos in document.Descendants(ns + "muni")
                            select datos.Element(ns + "nm").Value;
             return consulta.ToList();
-
         }
     }
 }

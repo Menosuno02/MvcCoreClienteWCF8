@@ -1,7 +1,9 @@
 using MvcCoreClienteWCF8.Helpers;
 using MvcCoreClienteWCF8.Repositories;
 using MvcCoreClienteWCF8.Services;
+using ServiceReference2;
 using ServiceReferenceCatastro;
+using ServiceReferenceCoches;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +12,12 @@ builder.Services.AddTransient<ServiceCountries>();
 builder.Services.AddTransient<ServiceConversor>();
 builder.Services.AddTransient<ServiceCatastro>();
 builder.Services.AddTransient<CallejerodelasedeelectrónicadelcatastroSoapClient>();
+
+builder.Services.AddTransient<MetodosVariosContractClient>();
+builder.Services.AddTransient<ServiceMetodosVarios>();
+
+builder.Services.AddTransient<CochesContractClient>();
+builder.Services.AddTransient<ServiceCoches>();
 
 builder.Services.AddTransient<RepositoryClientesXML>();
 builder.Services.AddSingleton<HelperPathProvider>();

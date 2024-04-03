@@ -1,0 +1,32 @@
+﻿@model ServiceReferenceCoches.Coche[]
+
+<h1>Coches Contract WCF</h1>
+
+<table class="table table-borderless">
+    <thead>
+        <tr>
+            <th>Coche</th>
+            <th>Imagen</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var coche in Model)
+        {
+            <tr>
+                <td>@coche.Marca @coche.Modelo</td>
+                <td>
+                    <img src="@coche.Imagen" width="200" height="200" />
+                </td>
+                <td>
+                    <a asp-controller="Coches"
+                       asp-action="Details"
+                       asp-route-idcoche="@coche.IdCoche"
+                       class="btn btn-success w-100">
+                        Details
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
